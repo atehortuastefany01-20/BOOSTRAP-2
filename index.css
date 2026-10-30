@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #eaf0ff;
+}
+
+.panel {
+    width: calc(100% - 32px);
+    max-width: 1200px;
+    margin: 32px auto;
+    border: 2px solid #1b111b;
+    background: #650064;
+}
+
+.fila {
+    height: 100px;
+    border-bottom: 2px solid #1b111b;
+}
+
+.fila:last-child {
+    border-bottom: 0;
+}
+
+.amarillo {
+    width: var(--ancho);
+    height: 100%;
+    background: #d7e600;
+    border-right: 2px solid #1b111b;
+}
+
+/* Celular: mitad, mitad, mitad, morado, amarillo, mitad */
+.fila:nth-child(1),
+.fila:nth-child(2),
+.fila:nth-child(3),
+.fila:nth-child(6) {
+    --ancho: 50%;
+}
+
+.fila:nth-child(4) .amarillo {
+    display: none;
+}
+
+.fila:nth-child(5) {
+    --ancho: 100%;
+}
+
+/* Tableta: 1/4, 1/3, 1/2, 1/3, 1/4 */
+@media (min-width: 768px) {
+    .fila:nth-child(1),
+    .fila:nth-child(5) {
+        --ancho: 25%;
+    }
+
+    .fila:nth-child(2),
+    .fila:nth-child(4) {
+        --ancho: 33.333333%;
+    }
+
+    .fila:nth-child(3) {
+        --ancho: 50%;
+    }
+
+    .fila:nth-child(4) .amarillo {
+        display: block;
+    }
+
+    .fila:nth-child(6) {
+        display: none;
+    }
+
+    .fila:nth-child(5) {
+        border-bottom: 0;
+    }
+}
+
+/* PC: 3/4, 1/4, 3/4, 1/4, 1/2 */
+@media (min-width: 1200px) {
+    .fila:nth-child(1),
+    .fila:nth-child(3) {
+        --ancho: 75%;
+    }
+
+    .fila:nth-child(2),
+    .fila:nth-child(4) {
+        --ancho: 25%;
+    }
+
+    .fila:nth-child(5) {
+        --ancho: 50%;
+    }
+}
